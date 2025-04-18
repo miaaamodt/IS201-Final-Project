@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mia's Homebase Page</title>
+  <link rel="stylesheet" href="css/scratch.css">
+</head>
+<body>
+  <header>Mia's Homebase Page</header>
+  <h2>Where you can find any important information about the one and only!</h2>
+
+  <nav>
+    <a href="index.html">Resume</a> |
+    <a href="webapp.html">Wordle ;)</a>
+  </nav>
+  <div class="info-section">
+    <ul class="centered-list">
+      <li>Some Fun Facts about me!:
+        <ol>
+          <li>I was born in Seattle</li>
+          <li>I love house plants</li>
+          <li>I love cooking</li>
+        </ol>
+      </li>
+      <li>Why these modules?:
+        <ol>
+          <li>I love my family they mean the world to me</li>
+          <li>This was the coolest Tableau chart</li>
+          <li>My little brother loves the Minecraft movie</li>
+        </ol>
+      </li>
+    </ul>
+
+  <img src="assets/img/IMG_1308.jpeg" alt="The fam" width="500">
+
+  <!-- Tableau Embed -->
+  <div class="tableau-container">
+    <div class="tableauPlaceholder" id="viz1744997725769" style="position: relative">
+      <noscript>
+        <a href="#"><img alt="Birthday" src="https://public.tableau.com/static/images/4B/4BB6H8TZ3/1_rss.png" style="border: none" /></a>
+      </noscript>
+      <object class="tableauViz" style="display:none;">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="path" value="shared/4BB6H8TZ3" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value="https://public.tableau.com/static/images/4B/4BB6H8TZ3/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+      </object>
+    </div>
+    <script type="text/javascript">
+      var divElement = document.getElementById('viz1744997725769');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      vizElement.style.width = '100%';
+      vizElement.style.height = '700px';
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+  </div>
+
+  <!-- YouTube Video Embed -->
+  <div class="video-player">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/naJtI4bS6O4?si=xSMrYREXWdWeJAww"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+  </div>
+
+</body>
+</html>

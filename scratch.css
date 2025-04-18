@@ -1,0 +1,193 @@
+/* General Reset and Vibes */
+body 
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background:linear-gradient(135deg, #fae295, #f9b8a6);
+        background-attachment:fixed; /* keeps it in place while scrolling */
+        background-repeat:no-repeat;
+        background-size: cover; /* stretches it beautifully */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 1px 1px #444;
+  }
+  
+  /* Header Glow-Up */
+  header, h2 {
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(102, 146, 255);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  
+  
+  /* Buttons with Sass */
+  button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+  }
+  
+  /* Goofy Card Style */
+  .card {
+    background-color: #fffacd;
+    border: 4px dashed #ffa07a;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 25px;
+    box-shadow: 5px 5px #f08080;
+  }
+  
+  /* Links that pop */
+  a {
+    color: #9370db;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    color: #ff4400ea;
+    text-decoration: underline wavy #ff69b4;
+  }
+  
+  /* Just to be Extra */
+  h1, h2, h3 {
+    color: #ff6347;
+    text-shadow: 1px 1px #ffd700;
+  }
+  body {
+    display: block; /* this is the default but you can reinforce it */
+    flex-direction: column; /* only matters if display: flex is applied */
+    align-items: center;
+    justify-content: start;
+    margin: 0;
+    padding: 0;
+  }
+  /* Center all content */
+.main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Make header BIGGER and beautiful */
+  header {
+    font-size: 3rem;
+    background-image: url('../images/your-header-image.jpg'); /* Replace with your file */
+    background-size: cover;
+    background-position: center;
+    color: #b1e3fe;
+    padding: 40px 20px;
+    text-shadow: 2px 2px 6px #000;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style h2 too */
+  h2 {
+    font-size: 1.8rem;
+    background-image: url('../images/your-header-image.jpg'); /* Same or different */
+    background-size: cover;
+    background-position: center;
+    color: #b1e3fe;
+    padding: 20px;
+    text-shadow: 1px 1px 5px #000;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  /* Navigation style */
+  nav {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  nav a {
+    color: #ff69b4;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Centered lists */
+  .centered-list {
+    list-style-position: inside;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  
+  /* Spacer between sections */
+  .spacer {
+    height: 50px;
+  }
+  
+  /* Optional: Style the video and tableau sections */
+  .video-player, .tableau-container {
+    margin-bottom: 40px;
+  } 
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .centered-list {
+    text-align: left;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  
+  .info-section img {
+    margin-top: 40px;
+    border-radius: 10px;
+  } 
+  .centered-list {
+    text-align: left;
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 1.4rem; /* You can increase this to 1.4rem, 1.6rem, etc. */
+    line-height: 1.6;   /* Optional: adds nice spacing between lines */
+  }
+  .tableau-container {
+    width: 100%;
+    max-width: 2000px; /* You can increase if needed */
+    margin: 50px auto;  /* space above and below */
+    text-align: center;
+  }
+  
+  .tableau-container object,
+  .tableau-container iframe {
+    width: 100% !important;
+    height: 700px !important;
+    display: block;
+    margin: 0 auto;
+  }

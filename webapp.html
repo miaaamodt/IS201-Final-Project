@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Wordle</title>
+  <style>  
+    body {
+      font-family: sans-serif;
+      background-color: #121213;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2em;
+    }
+
+    #game {
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(5, 50px);
+      gap: 5px;
+    }
+
+    .tile {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #3a3a3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      background-color: #121213;
+    }
+
+    .correct {
+      background-color: #538d4e;
+    }
+
+    .present {
+      background-color: #b59f3b;
+    }
+
+    .absent {
+      background-color: #3a3a3c;
+    }
+
+    input {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 1em;
+      width: 150px;
+      text-transform: uppercase;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #538d4e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #6aaa64;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.2em;
+      height: 30px;
+    }
+
+    .back-button {
+      margin-top: 40px;
+      background-color: #3a3a3c;
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 25px;
+      border: 2px solid #fff;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #2a2a2c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mini Wordle</h1>
+  <div id="game"></div> 
+
+  <div>
+    <input id="guessInput" maxlength="5" placeholder="Enter guess" />
+    <button onclick="submitGuess()">Guess</button>
+  </div>
+
+  <div id="message"></div>
+
+  <!-- 🌈 Back Button to Mia's Homebase -->
+  <a href="scratch.html" class="back-button">← Back to Mia's Homebase</a>
+
+  <script>
+    const WORD_LIST = ["apple", "grape", "shine", "brave", "crane", "flame", "mango", "zebra"];
+    const answer = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)].toUpperCase();
+    const gameContainer = document.getElementById("game");
+    const messageBox = document.getElementById("message");
+
+    let currentRow = 0;
+
+    // Build grid
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement("div");
+      row.className = "row";
+      for (let j = 0; j < 5; j++) {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        row.appendChild(tile);
+      }
+      gameContainer.appendChild(row);
+    }
+
+    function submitGuess() {
+      const input = document.getElementById("guessInput");
+      const guess = input.value.toUpperCase();
+
+      if (guess.length !== 5 || !/^[A-Z]{5}$/.test(guess)) {
+        messageBox.textContent = "Enter a valid 5-letter word!";
+        return;
+      }
+
+      if (currentRow >= 6) return;
+
+      const row = gameContainer.children[currentRow];
+      const letterCount = {};
+
+      for (let letter of answer) {
+        letterCount[letter] = (letterCount[letter] || 0) + 1;
+      }
+
+      // First pass for correct letters
+      for (let i = 0; i < 5; i++) {
+        const tile = row.children[i];
+        tile.textContent = guess[i];
+        if (guess[i] === answer[i]) {
+          tile.classList.add("correct");
+          letterCount[guess[i]]--;
+        }
+      }
+
+      // Second pass for present and absent
+      for (let i = 0; i < 5; i++) {
+        const tile = row.children[i];
+        if (tile.classList.contains("correct")) continue;
+
+        if (answer.includes(guess[i]) && letterCount[guess[i]] > 0) {
+          tile.classList.add("present");
+          letterCount[guess[i]]--;
+        } else {
+          tile.classList.add("absent");
+        }
+      }
+
+      if (guess === answer) {
+        messageBox.textContent = "🎉 You got it!";
+        document.getElementById("guessInput").disabled = true;
+        return;
+      }
+
+      currentRow++;
+      input.value = "";
+      messageBox.textContent = currentRow === 6 ? `❌ Out of tries! Word was: ${answer}` : "";
+    }
+
+    document.getElementById("guessInput").addEventListener("keypress", function (e) {
+      if (e.key === "Enter") submitGuess();
+    });
+  </script>
+</body>
+</html>
